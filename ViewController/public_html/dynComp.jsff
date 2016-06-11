@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:componentDef componentVar="dyntable" var="attrs">
+        <af:xmlContent>
+            <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+                <attribute>
+                    <attribute-name>ViewObjectName</attribute-name>
+                    <required>true</required>
+                </attribute>
+                <attribute>
+                    <attribute-name>TreeBindingName</attribute-name>
+                    <required>true</required>
+                </attribute>
+                <attribute>
+                    <attribute-name>IteratorName</attribute-name>
+                    <required>true</required>
+                </attribute>
+                <attribute>
+                    <attribute-name>RSIName</attribute-name>
+                </attribute>
+                <attribute>
+                    <attribute-name>DataControlName</attribute-name>
+                    <required>true</required>
+                </attribute>
+            </component>
+        </af:xmlContent>
+        <af:panelFormLayout id="pfl1">
+            <af:iterator value="#{backingBeanScope.DynCompBean.attributeDefs}" var="attr" rows="-1" id="it1">
+                <af:switcher id="s2" 
+                             facetName="#{backingBeanScope.DynCompBean.attributeType[attr.name]}"
+                             defaultFacet="default">
+                    <f:facet name="default">
+                        <af:inputText id="it3"
+                                      value="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].inputValue}"
+                                      label="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.label}"
+                                      required="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.mandatory}"
+                                      columns="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.displayWidth}"
+                                      maximumLength="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.precision}"
+                                      shortDesc="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.tooltip}"
+                                      valueChangeListener="#{backingBeanScope.DynCompBean.genericValueChangeListener}"
+                                      autoSubmit="true">
+                            <f:validator binding="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].validator}"/>
+                            <f:attribute name="attrName" value="#{attr.name}"/>
+                        </af:inputText>
+                    </f:facet>
+                    <f:facet name="number">
+                        <af:inputText id="it2"
+                                      value="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].inputValue}"
+                                      label="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.label}"
+                                      required="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.mandatory}"
+                                      columns="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.displayWidth}"
+                                      maximumLength="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.precision}"
+                                      shortDesc="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.tooltip}"
+                                      valueChangeListener="#{backingBeanScope.DynCompBean.genericValueChangeListener}"
+                                      autoSubmit="true">
+                            <f:validator binding="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.format}"/>
+                            <f:attribute name="attrName" value="#{attr.name}"/>
+                        </af:inputText>
+                    </f:facet>
+                    <f:facet name="date">
+                        <af:inputDate value="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].inputValue}"
+                                      label="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.label}"
+                                      required="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.mandatory}"
+                                      columns="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.displayWidth}"
+                                      shortDesc="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].hints.tooltip}"
+                                      id="id1">
+                            <f:validator binding="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].validator}"/>
+                            <af:convertDateTime pattern="#{backingBeanScope.DynCompBean.dynamicAttribute[attr.name].format}"/>
+                            <f:attribute name="attrName" value="#{attr.name}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <f:facet name="input_text_lov">
+                        <af:inputListOfValues id="iclov"
+                                              popupTitle="Search and Select: #{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].hints.label}"
+                                              value="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].inputValue}"
+                                              label="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].hints.label}"
+                                              model="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].listOfValuesModel}"
+                                              required="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].hints.mandatory}"
+                                              columns="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].hints.displayWidth}"
+                                              maximumLength="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].hints.precision == 0 ? backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].attributeDef.properties.maximumLength : backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].hints.precision}"
+                                              shortDesc="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].hints.tooltip}"
+                                              valueChangeListener="#{backingBeanScope.DynCompBean.genericValueChangeListener}"
+                                              autoSubmit="true">
+                            <f:validator binding="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].validator}"/>
+                            <f:attribute name="attrName" value="#{attr.name}"/>
+                        </af:inputListOfValues>
+                    </f:facet>
+                </af:switcher>
+            </af:iterator>
+            <f:facet name="footer"></f:facet>
+        </af:panelFormLayout>
+    </af:componentDef>
+</ui:composition>
+

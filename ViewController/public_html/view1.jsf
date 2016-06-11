@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="view1.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:declarativeComponent viewId="dynComp.jsff" id="dc2" DataControlName="HrModuleDataControl"
+                                     ViewObjectName="EmployeesView1"
+                                     TreeBindingName="EmployeesView1"
+                                     IteratorName="EmployeesView1Iterator"/>
+        </af:form>
+    </af:document>
+</f:view>

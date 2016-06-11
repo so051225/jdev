@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelFormLayout id="pfl1">
+        <af:iterator value="#{backingBeanScope.EmployeesBean.attributeDefs}" var="attr" rows="-1" id="it1">
+            <af:switcher id="s2" defaultFacet="default"
+                         facetName="#{backingBeanScope.EmployeesBean.attributeType[attr.name]}">
+                <f:facet name="default">
+                    <af:inputText id="it3"
+                                  value="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].inputValue}"
+                                  label="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.label}"
+                                  required="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.mandatory}"
+                                  columns="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.displayWidth}"
+                                  maximumLength="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.precision}"
+                                  shortDesc="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.tooltip}"
+                                  valueChangeListener="#{backingBeanScope.EmployeesBean.genericValueChangeListener}"
+                                  autoSubmit="true">
+                        <f:validator binding="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].validator}"/>
+                        <f:attribute name="attrName" value="#{attr.name}"/>
+                    </af:inputText>
+                </f:facet>
+                <f:facet name="number">
+                    <af:inputText id="it2"
+                                  value="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].inputValue}"
+                                  label="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.label}"
+                                  required="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.mandatory}"
+                                  columns="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.displayWidth}"
+                                  maximumLength="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.precision}"
+                                  shortDesc="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.tooltip}"
+                                  valueChangeListener="#{backingBeanScope.EmployeesBean.genericValueChangeListener}"
+                                  autoSubmit="true">
+                        <f:validator binding="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.format}"/>
+                        <f:attribute name="attrName" value="#{attr.name}"/>
+                    </af:inputText>
+                </f:facet>
+                <f:facet name="date">
+                    <af:inputDate value="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].inputValue}"
+                                  label="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.label}"
+                                  required="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.mandatory}"
+                                  columns="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.displayWidth}"
+                                  shortDesc="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].hints.tooltip}"
+                                  id="id1">
+                        <f:validator binding="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].validator}"/>
+                        <af:convertDateTime pattern="#{backingBeanScope.EmployeesBean.dynamicAttribute[attr.name].format}"/>
+                        <f:attribute name="attrName" value="#{attr.name}"/>
+                    </af:inputDate>
+                </f:facet>
+                <f:facet name="input_text_lov">
+                    <af:inputListOfValues id="iclov"
+                                          popupTitle="Search and Select: #{backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].hints.label}"
+                                          value="#{backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].inputValue}"
+                                          label="#{backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].hints.label}"
+                                          model="#{backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].listOfValuesModel}"
+                                          required="#{backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].hints.mandatory}"
+                                          columns="#{backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].hints.displayWidth}"
+                                          maximumLength="#{backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].hints.precision == 0 ? backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].attributeDef.properties.maximumLength : backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].hints.precision}"
+                                          shortDesc="#{backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].hints.tooltip}"
+                                          valueChangeListener="#{backingBeanScope.EmployeesBean.genericValueChangeListener}"
+                                          autoSubmit="true">
+                        <f:validator binding="#{backingBeanScope.EmployeesBean.dynamicLovAttribute[attr.name].validator}"/>
+                        <f:attribute name="attrName" value="#{attr.name}"/>
+                    </af:inputListOfValues>
+                </f:facet>
+            </af:switcher>
+        </af:iterator>
+        <f:facet name="footer">
+            <af:toolbar id="t1">
+                <af:button actionListener="#{bindings.First.execute}" text="First" id="ctb1"
+                           disabled="#{!bindings.First.enabled}"/>
+                <af:button actionListener="#{bindings.Previous.execute}" text="Previous" id="ctb2"
+                           disabled="#{!bindings.Previous.enabled}"/>
+                <af:button actionListener="#{bindings.Next.execute}" text="Next" id="ctb3"
+                           disabled="#{!bindings.Next.enabled}"/>
+                <af:button actionListener="#{bindings.Last.execute}" text="Last" id="ctb4"
+                           disabled="#{!bindings.Last.enabled}"/>
+            </af:toolbar>
+        </f:facet>
+    </af:panelFormLayout>
+</ui:composition>

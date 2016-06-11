@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.redsamurai.model.services.HrModule">
+      <AppModuleConfig DeployPlatform="LOCAL" JDBCName="HrDS" jbo.project="com.redsamurai.model.Model" name="HrModuleLocal" ApplicationName="com.redsamurai.model.services.HrModule">
+         <Database jbo.TypeMapEntries="OracleApps" jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.redsamurai.model.services.HrModule"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="HrModuleShared" jbo.project="com.redsamurai.model.Model" ApplicationName="com.redsamurai.model.services.HrModule" DeployPlatform="LOCAL">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="com.redsamurai.model.services.HrModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/HrDSDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

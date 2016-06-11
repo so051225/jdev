@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="emplsViewPageDef"
+                Package="com.redsamurai.view.pageDefs.fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="EmployeesView1Iterator" Binds="EmployeesView1" DataControl="HrModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <action IterBinding="EmployeesView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="EmployeesView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="EmployeesView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="EmployeesView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+  </bindings>
+</pageDefinition>
