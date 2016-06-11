@@ -5,8 +5,7 @@
         <af:messages id="m1"/>
         <af:form id="f1">
             <af:declarativeComponent viewId="dynComp.jsff" id="dc2" DataControlName="HrModuleDataControl"
-                                     ViewObjectName="EmployeesView1"
-                                     TreeBindingName="EmployeesView1"
+                                     ViewObjectName="EmployeesView1" TreeBindingName="EmployeesView1"
                                      IteratorName="EmployeesView1Iterator"/>
         </af:form>
     </af:document>

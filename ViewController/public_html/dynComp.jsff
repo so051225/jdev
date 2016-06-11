@@ -73,7 +73,7 @@
                         </af:inputDate>
                     </f:facet>
                     <f:facet name="input_text_lov">
-                        <af:inputListOfValues id="iclov"
+                        <!--<af:inputListOfValues id="iclov"
                                               popupTitle="Search and Select: #{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].hints.label}"
                                               value="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].inputValue}"
                                               label="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].hints.label}"
@@ -86,7 +86,7 @@
                                               autoSubmit="true">
                             <f:validator binding="#{backingBeanScope.DynCompBean.dynamicLovAttribute[attr.name].validator}"/>
                             <f:attribute name="attrName" value="#{attr.name}"/>
-                        </af:inputListOfValues>
+                        </af:inputListOfValues>-->
                     </f:facet>
                 </af:switcher>
             </af:iterator>

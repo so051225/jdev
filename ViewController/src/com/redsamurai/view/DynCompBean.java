@@ -40,6 +40,7 @@ public class DynCompBean {
 
     public DynCompBean() {
         super();
+        System.err.println("hello!");
     }
 
     public AttributeDef[] getAttributeDefs() {
