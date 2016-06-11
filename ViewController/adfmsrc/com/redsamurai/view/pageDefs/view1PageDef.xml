@@ -20,7 +20,6 @@
           <Item Value="LastName"/>
           <Item Value="ManagerId"/>
           <Item Value="PhoneNumber"/>
-          <Item Value="Salary"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

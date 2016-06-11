@@ -122,6 +122,9 @@
       EntityAttrName="Salary"
       EntityUsage="Employees"
       AliasName="SALARY" >
+      <Properties>
+         <SchemaBasedProperties/>
+      </Properties>
    </ViewAttribute>
    <ViewAttribute
       Name="CommissionPct"

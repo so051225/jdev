@@ -12,10 +12,10 @@ import oracle.jbo.ViewObject;
 import oracle.jbo.server.AttributeDefImpl;
 
 public class AttributeTypeMap extends HashMap {
-    @SuppressWarnings("compatibility:8559457075719800424")
-    private static final long serialVersionUID = 1L;
+    @SuppressWarnings("compatibility:3950803358050657134")
+    private static final long serialVersionUID = 7946356579436921538L;
 
-    private ViewObject vo;
+    private transient ViewObject vo;
     
     public AttributeTypeMap(Map map) {
         super(map);
