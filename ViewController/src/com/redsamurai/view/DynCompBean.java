@@ -40,11 +40,9 @@ public class DynCompBean {
 
     public DynCompBean() {
         super();
-        System.err.println("hello!");
     }
 
     public AttributeDef[] getAttributeDefs() {
-        System.err.println("iter name: " + this.getIteratorName());
         DCIteratorBinding dcIter = ADFUtils.findIterator(this.getIteratorName());
 
         AttributeDef[] attrDefsAll = dcIter.getAttributeDefs();
