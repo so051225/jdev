@@ -15,7 +15,8 @@
                                   filterModel="#{bindings.VDepartment1Query.queryDescriptor}" filterVisible="true"
                                   queryListener="#{bindings.VDepartment1Query.processQuery}" varStatus="vs" id="t1"
                                   selectionListener="#{bindings.VDepartment1.treeModel.makeCurrent}"
-                                  binding="#{DepartmentRequestBean.tblDepartment}">
+                                  binding="#{DepartmentRequestBean.tblDepartment}"
+                                  sortListener="#{DepartmentRequestBean.onSort}">
                             <af:column id="c5">
                                 <af:button text="Delete" id="b1" actionListener="#{DepartmentRequestBean.onDelete}"/>
                                 <af:button text="button 1" id="b2"/>
