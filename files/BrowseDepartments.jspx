@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:table value="#{bindings.DepartmentsView1.collectionModel}" var="row"
+                  rows="#{bindings.DepartmentsView1.rangeSize}"
+                  emptyText="#{bindings.DepartmentsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.DepartmentsView1.rangeSize}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.DepartmentsView1.collectionModel.selectedRow}"
+                  rowSelection="single" id="t1"
+                  selectionListener="#{DepartmentsBacking.onTableSelect}">
+         <af:column headerText="delete" id="c5">
+            <af:button text="delete" id="b1" actionListener="#{DepartmentsBacking.onDelete}" partialSubmit="false">
+              <f:attribute name="rowKeyStr" value="#{row.rowKeyStr}"/>
+              <f:attribute name="rowKey" value="#{row.rowKey}"/>
+            </af:button>
+          </af:column>
+          <af:column sortProperty="DepartmentId" sortable="false"
+                     headerText="#{bindings.DepartmentsView1.hints.DepartmentId.label}"
+                     id="c2">
+            <af:outputText value="#{row.DepartmentId}" id="ot2">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.DepartmentsView1.hints.DepartmentId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="DepartmentName" sortable="false"
+                     headerText="#{bindings.DepartmentsView1.hints.DepartmentName.label}"
+                     id="c3">
+            <af:outputText value="#{row.DepartmentName}" id="ot4"/>
+          </af:column>
+          <af:column sortProperty="ManagerId" sortable="false"
+                     headerText="#{bindings.DepartmentsView1.hints.ManagerId.label}"
+                     id="c1">
+            <af:outputText value="#{row.ManagerId}" id="ot3">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.DepartmentsView1.hints.ManagerId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="LocationId" sortable="false"
+                     headerText="#{bindings.DepartmentsView1.hints.LocationId.label}"
+                     id="c4">
+            <af:outputText value="#{row.LocationId}" id="ot1">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.DepartmentsView1.hints.LocationId.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:table>
+        <af:commandButton text="Print current row info" id="cb1"
+                          partialSubmit="true"
+                          action="#{DepartmentsBacking.print_action}"/>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:DepartmentsBacking-->
+</jsp:root>

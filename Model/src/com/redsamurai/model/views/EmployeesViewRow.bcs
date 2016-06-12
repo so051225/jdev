@@ -1,0 +1,13 @@
+//Groovy Scripts for com.redsamurai.model.views.EmployeesView
+
+package com.redsamurai.model.views
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="JobId")
+def JobId_ExpressionScript_Expression()
+{
+JobsLovView1.first()?.getAttribute("JobId")
+
+}
+

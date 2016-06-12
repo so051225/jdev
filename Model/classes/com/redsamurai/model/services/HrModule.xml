@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HrModule"
+  Version="12.2.1.0.31"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="com.redsamurai.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="VEmpSort1"
+    ViewObjectName="com.redsamurai.model.views.sort.VEmpSort"/>
+  <ViewUsage
+    Name="VEmpSort2"
+    ViewObjectName="com.redsamurai.model.views.sort.VEmpSort"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="com.redsamurai.model.views.sort.EmpManagerFkLink"
+    SrcViewUsageName="com.redsamurai.model.services.HrModule.VEmpSort1"
+    DstViewUsageName="com.redsamurai.model.services.HrModule.VEmpSort2"
+    Reversed="false"/>
+</AppModule>
