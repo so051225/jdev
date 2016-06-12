@@ -9,9 +9,17 @@
   <view id="testSort">
     <page>/testSort.jsf</page>
   </view>
+  <view id="testMakeCurrent">
+    <page>/testMakeCurrent.jsf</page>
+  </view>
   <managed-bean id="__1">
     <managed-bean-name>DynCompBean</managed-bean-name>
     <managed-bean-class>com.redsamurai.view.DynCompBean</managed-bean-class>
     <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>DepartmentRequestBean</managed-bean-name>
+    <managed-bean-class>com.redsamurai.view.beans.DepartmentRequestBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
 </adfc-config>

@@ -15,6 +15,9 @@
   <ViewUsage
     Name="VEmpSort2"
     ViewObjectName="com.redsamurai.model.views.sort.VEmpSort"/>
+  <ViewUsage
+    Name="VDepartment1"
+    ViewObjectName="com.redsamurai.model.entities.assocs.VDepartment"/>
   <ViewLinkUsage
     Name="EmpManagerFkLink1"
     ViewLinkObjectName="com.redsamurai.model.views.sort.EmpManagerFkLink"

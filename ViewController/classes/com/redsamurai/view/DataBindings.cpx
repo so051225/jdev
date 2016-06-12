@@ -11,12 +11,14 @@
     <page path="/fragments/emplsView.jsff" usageId="com_redsamurai_view_emplsViewPageDef"/>
     <page path="/view1.jsf" usageId="com_redsamurai_view_view1PageDef"/>
     <page path="/testSort.jsf" usageId="com_redsamurai_view_testSortPageDef"/>
+    <page path="/testMakeCurrent.jsf" usageId="com_redsamurai_view_testMakeCurrentPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_redsamurai_view_mainPageDef" path="com.redsamurai.view.pageDefs.mainPageDef"/>
     <page id="com_redsamurai_view_emplsViewPageDef" path="com.redsamurai.view.pageDefs.fragments.emplsViewPageDef"/>
     <page id="com_redsamurai_view_view1PageDef" path="com.redsamurai.view.pageDefs.view1PageDef"/>
     <page id="com_redsamurai_view_testSortPageDef" path="com.redsamurai.view.pageDefs.testSortPageDef"/>
+    <page id="com_redsamurai_view_testMakeCurrentPageDef" path="com.redsamurai.view.pageDefs.testMakeCurrentPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="HrModuleDataControl" Package="com.redsamurai.model.services"
