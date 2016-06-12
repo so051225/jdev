@@ -3,7 +3,8 @@
             xmlns:adf="http://xmlns.oracle.com/adf/config/properties"
             xmlns:sec="http://xmlns.oracle.com/adf/security/config">
   <adf-adfm-config xmlns="http://xmlns.oracle.com/adfm/config">
-    <defaults changeEventPolicy="ppr" useBindVarsForViewCriteriaLiterals="true"/>
+    <defaults changeEventPolicy="ppr" useBindVarsForViewCriteriaLiterals="true" useBindValuesInFindByKey="true"
+              iteratorRowValidationFlag="false"/>
     <startup>
       <amconfig-overrides>
         <config:Database jbo.locking.mode="optimistic"/>
